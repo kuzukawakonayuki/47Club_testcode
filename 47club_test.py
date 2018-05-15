@@ -1,4 +1,4 @@
-#Coding: UTF-8
+# coding: UTF-8
 from selenium import webdriver
 import threading
 import time
@@ -6,11 +6,12 @@ import time
 def club47():
     while (1==1):
         print("test")
-        if "Tue May 15 03:57:00 2018" <= time.ctime():
+        if "Tue May 15 18:33:00 2018" <= time.ctime():
             driver = webdriver.Chrome(executable_path="C:\WebDriver\chromedriver.exe")
-            driver.get("https://www.yahoo.co.jp")
+            driver.get("http://stg-01.47club.jp/aaaa/goods/detail/10060731/")
+            time.sleep(5)
+            driver.find_element_by_xpath(u"//img[@alt='カートに入れる']").click()
             time.sleep(30)
-            driver.get("https://www.google.co.jp")
             break
 
 if __name__=="__main__":
