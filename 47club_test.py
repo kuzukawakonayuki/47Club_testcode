@@ -1,11 +1,22 @@
 # coding: UTF-8
+#Python_v2.7.15
+#selenium_v3.12.0
+#ChromeDriver_v2.38
+
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.chrome.options import Options
 import threading
 import time
 
+print("*47Club_Test ver1.0*")
+test_time = raw_input("input test_time format=Thu May 17 00:00:00 2018>>")
+print("---test_start---")
+
 def club47():
-    print("test")
+    options = Options()
+    options.binary_location = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+    options.add_argument('--headless')
     driver = webdriver.Chrome(executable_path="C:\WebDriver\chromedriver.exe")
     driver.get("http://stg-01.47club.jp/aaaa/goods/detail/10060731/")
     time.sleep(10)
@@ -63,7 +74,7 @@ def club47():
     driver.find_element_by_name("submit").click()
     time.sleep(10)
     while(1==1):
-        if "Wed May 16 18:50:00 2018" <= time.ctime():
+        if test_time <= time.ctime():
             driver.find_element_by_xpath(u"//img[@alt='注文を確定する']").click()
             break
     time.sleep(10)
@@ -84,7 +95,7 @@ if __name__=="__main__":
     th13 = threading.Thread(target=club47)
     th14 = threading.Thread(target=club47)
     th15 = threading.Thread(target=club47)
-
+	
     th1.start()
     th2.start()
     th3.start()
